@@ -21,8 +21,7 @@ export default function UsersList({ setUsers }) {
       }
     };
 
-    fetchUsers();
-  }, [setUsers]);
+  }, [users]);
 // Rendu du composant
   return (
     <div>

@@ -48,13 +48,39 @@ export default function GroupItem({ group, onGroupUpdated }) {
       <span>{group.name}</span>
       <div>
         {isMember ? (
-          <button onClick={() => handleJoinOrLeaveGroup(group.id, 'leave')}>Quitter</button>
+          <button 
+          style={{
+            backgroundColor: 'white',
+            color: 'black',
+            border: '2px solid #555555',
+            borderRadius: '4px'
+          }}
+          
+          onClick={() => handleJoinOrLeaveGroup(group.id, 'leave')}>Quitter</button>
         ) : (
-          <button onClick={() => handleJoinOrLeaveGroup(group.id, 'join')}>Rejoindre</button>
+          <button 
+          style={{
+            backgroundColor: 'white',
+            color: 'black',
+            border: '2px solid #555555',
+            borderRadius: '4px'
+          }}
+
+          onClick={() => handleJoinOrLeaveGroup(group.id, 'join')}>Rejoindre</button>
         )}
 
-            <button onClick={() => handleRemoveGroupe(group.id, 'join')}>Remove</button>
+            <button 
+            style={{
+              backgroundColor: 'white',
+              color: 'black',
+              border: '2px solid #555555',
+              borderRadius: '4px',
+              margin: '0 3px 0'
+              
+            }}
+            onClick={() => handleRemoveGroupe(group.id, 'join')}>Remove</button>
       </div>
     </div>
   );
 }
+

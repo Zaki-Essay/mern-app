@@ -17,17 +17,17 @@ export default function HomePage() {
     <div className="container custom-container">
       <nav className="navbar custom-navbar">
         <div className="nav-left">
-          <Link href="/">
+          <div href="/">
             <a className="custom-link">Accueil</a>
-          </Link>
+          </div>
         </div>
         <div className="nav-right">
-          <Link href="/login">
+          <div href="/login">
             <a className="custom-link">Connexion</a>
-          </Link>
-          <Link href="/register">
+          </div>
+          <div href="/register">
             <a className="custom-link">Inscription</a>
-          </Link>
+          </div>
         </div>
       </nav>
 

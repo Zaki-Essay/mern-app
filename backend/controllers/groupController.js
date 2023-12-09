@@ -89,3 +89,24 @@ exports.getGroupTodos = async (req, res) => {
   }
 };
 
+
+// Controller pour supprimer un groupe
+exports.deleteGroup = async (req, res) => {
+  try {
+    const { groupId } = req.params;
+
+    const group = await Group.findByPk(groupId);
+    if (!group) {
+      return res.status(404).json({ message: 'Group not found.' });
+    }
+
+    // Remove all associated tasks before deleting the group
+    await GroupTodo.destroy({ where: { groupId } });
+
+    await Group.destroy({ where: { id: groupId } });
+    res.status(200).json({ message: 'Group deleted successfully.' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+

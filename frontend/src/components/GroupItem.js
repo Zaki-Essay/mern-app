@@ -23,6 +23,23 @@ export default function GroupItem({ group, onGroupUpdated }) {
     }
   };
 
+
+  const handleRemoveGroupe = async (groupId) => {
+    try {
+      const url = `http://localhost:3000/api/groups/${groupId}`;
+      const response = await axios.delete(url, {}, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      
+      
+    } catch (err) {
+      console.error(`Erreur lors de la tentative de ${action} le groupe`, err);
+      
+    }
+  };
+
   // Détermine si l'utilisateur actuel est membre du groupe
   const isMember = group.members?.some(member => member.id === localStorage.getItem('userId')); 
 
@@ -35,6 +52,8 @@ export default function GroupItem({ group, onGroupUpdated }) {
         ) : (
           <button onClick={() => handleJoinOrLeaveGroup(group.id, 'join')}>Rejoindre</button>
         )}
+
+            <button onClick={() => handleRemoveGroupe(group.id, 'join')}>Remove</button>
       </div>
     </div>
   );

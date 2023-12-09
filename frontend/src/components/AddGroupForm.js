@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 // Définition du composant de formulaire pour ajouter un groupe
-export default function AddGroupForm({ onGroupAdded }) {
+export default function AddGroupForm({ onGroupAdded, setGroups }) {
   // Déclaration des états pour le nom du groupe et les erreurs
   const [groupName, setGroupName] = useState('');
   const [error, setError] = useState('');
@@ -27,6 +27,7 @@ export default function AddGroupForm({ onGroupAdded }) {
         onGroupAdded(response.data);
       }
 
+      setGroups(prevGroups => [...prevGroups, response.data]); // Add the new group to the existing list
       setGroupName(''); 
     } catch (err) {
       setError(err.response?.data?.message || 'Une erreur est survenue lors de la création du groupe.');

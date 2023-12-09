@@ -17,7 +17,7 @@ export default function DashboardPage() {
   useEffect(() => {
     fetchTodos(); // Charger les tâches
     fetchGroups(); // Charger les groupes
-  }, []);
+  }, [groups]);
 
   // Fonction pour récupérer les tâches
   const fetchTodos = async () => {
@@ -55,7 +55,7 @@ export default function DashboardPage() {
         </section>
         <section>
           <h2>Créer un groupe</h2>
-          <AddGroupForm onGroupAdded={handleNewGroup} />
+          <AddGroupForm onGroupAdded={handleNewGroup}  setGroups={setGroups}/>
         </section>
         <section>
           <h2>Mes groupes</h2>

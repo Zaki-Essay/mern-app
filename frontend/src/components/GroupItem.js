@@ -35,7 +35,7 @@ export default function GroupItem({ group, onGroupUpdated }) {
       
       
     } catch (err) {
-      console.error(`Erreur lors de la tentative de ${action} le groupe`, err);
+      console.error(`Erreur`, err);
       
     }
   };

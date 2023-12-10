@@ -10,6 +10,18 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+
+# Install dependencies
+RUN npm install sqlite3
+RUN npm install rebuild
+
+
+RUN npm uninstall bcrypt && npm install bcrypt
+
+RUN npm install rebuild
+
+RUN npm rebuild bcrypt --build-from-source
+
 # Copy the rest of the application files to the working directory
 COPY . .
 
